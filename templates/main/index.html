@@ -1,0 +1,39 @@
+{% extends 'main/base.html' %}
+{% load static %}
+{% block content %}
+
+{% include 'main/navbar.html' %}
+
+{% include 'main/sidenav.html' %}
+
+
+
+<div1>
+    <marquee behavior="scroll" direction="right" scrollamount="20" >
+<h1 class="center-align" >📚 Welcome to My Blog 📚</i></h1>
+</marquee>
+<marquee  behavior="slide" direction="up" >
+<h2 class="center-align "><img src="https://media1.giphy.com/media/jy556kAY2XYhG/giphy.gif?cid=ecf05e4741b6c409b992b74903264960dfc96d2ac72e5384&rid=giphy.gif" class="left responsive-img" ><u>Top Articles This Week</u><img class="right" src="https://media0.giphy.com/media/JPsFUPp3vLS5q/giphy.gif" alt=""></h2>
+</marquee>
+</div1>
+
+
+    <div class="collection">
+        
+            <ul>
+                {% for article in latest_articles %}
+            <li class="collection-item center-align">
+                <a href="{% url 'get_article' article.id %}">{{ article }}</a>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+</div>
+{% include 'main/parallax.html' %}
+{% include 'main/floatbut.html' %}
+{% endblock %}
+    
+
+{% block script %}
+
+{% endblock %}

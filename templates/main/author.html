@@ -1,0 +1,42 @@
+{% extends 'main/base.html' %}
+
+{% load static %}
+{% block content%}
+{% include 'main/navbar.html' %}
+{% include 'main/sidenav.html' %}
+
+
+
+
+<div class="row">
+    <div class="col s12 m7">
+      <div class="card">
+        <div class="card-image">
+          <img class="center-align" src="https://www.iboo.com/Content/Images/uploaded/Homepage/Authors/Author%20680%20x%20300.jpg">
+          <span class="card-title"></h1></span>
+        </div>
+        <div class="card-content">
+          <p><h1>Name:{{ author.name }}</p>
+         
+        </div>
+        <div class="card-action">
+            Articles Written:
+                <ul>
+                    {% for article in author.article_set.all %}
+                    <li>
+                        <a href="{% url 'get_article' article.id % }">
+                        {{ article }}</a>
+                    </li>
+                    {% endfor %}
+                </ul>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+
+  <p class="collection">
+    {{ article.content }}
+</p>
+
+{% endblock %}

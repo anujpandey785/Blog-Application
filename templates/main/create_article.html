@@ -1,0 +1,23 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block content %}
+
+
+{% include 'main/navbar.html' %}
+{% include 'main/sidenav.html' %}
+
+
+<h1>Create New Article</h1>
+
+
+
+<form action="" method="POST">
+    {% csrf_token %}
+    {{createarticle}}
+    <button type="submit">Submit</button>
+    <button type="button">Reset</button>
+</form>
+
+
+{% endblock %}

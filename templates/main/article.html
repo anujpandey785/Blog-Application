@@ -1,0 +1,44 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+
+{% block content %}
+{% include 'main/navbar.html' %}
+{% include 'main/sidenav.html' %}
+
+
+
+<div class="row center-align">
+    <div class="col s12 m7 center-align">
+      <div class="card center-align">
+        <div class="card-image responsive-img center-align">
+          <img src="https://images.unsplash.com/photo-1455390582262-044cdead277a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60">
+          <span class="card-title"><h1>{{ article.title }}</h1></span>
+        </div>
+        <div class="card-content">
+          <p>
+            <h4> </h4>
+          </p>
+        </div>
+        <div class="card-action">
+            Written By:
+                {% for author in article.authors.all %}
+                <a href="{% url 'get_author' author.id %}">
+                  {{ author}},
+                </a>
+                {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+    <h3 class="container">Created At {{ article.createdAt }}</h3>
+    
+    <p class="collection">
+        {{ article.content }}
+    </p>
+
+{% endblock %}
